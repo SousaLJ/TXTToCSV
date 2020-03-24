@@ -22,7 +22,7 @@ public class Main {
 
 
 	public static void main(String[] args) throws Exception, IOException {
-		String path = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\AGHUse 7.txt";
+		String path = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\AGHUse 8.txt";
 		File txtFile = new File(path);
 		BufferedReader br = new BufferedReader(new FileReader(txtFile, StandardCharsets.UTF_8)); 
 		String fileName = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\"+(txtFile.getName().replace(".txt", ".csv"));
@@ -44,8 +44,15 @@ public class Main {
 						deployObj.setTipo(tipoModulo[0].trim());
 						deployObj.setModulo("");
 					} else {
-						deployObj.setTipo(tipoModulo[0].trim());
-						deployObj.setModulo(tipoModulo[1].replace(")", ""));
+						if(tipoModulo.length == 2) {
+							deployObj.setTipo(tipoModulo[0].trim());
+							deployObj.setModulo(tipoModulo[1].replace(")", ""));
+						} else {
+							deployObj.setTipo(tipoModulo[0].trim());
+							deployObj.setModulo("");
+						}
+						
+						
 					}
 					String desc = arrOfStr[1].replace("#", "");
 					deployObj.setDescricao(desc);
