@@ -14,7 +14,7 @@ import CSVModel.Deploy;
 
 public class Main {
 	public static String[] versaoData;
-	private static final String FILE_HEADER = "Versão,Data,Tipo,Módulo,Descrição";
+	private static final String FILE_HEADER = "Versão;Data;Tipo;Módulo;Descrição";
 
 	public final static String SEPARADOR = ";";
 	public final static String QUEBRA_LINHA = "\n";
@@ -22,7 +22,7 @@ public class Main {
 
 
 	public static void main(String[] args) throws Exception, IOException {
-		String path = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\AGHUse11.txt";
+		String path = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\AGHUse 7.txt";
 		File txtFile = new File(path);
 		BufferedReader br = new BufferedReader(new FileReader(txtFile, StandardCharsets.UTF_8)); 
 		String fileName = "C:\\Users\\Leandro Jesus Sousa\\Downloads\\"+(txtFile.getName().replace(".txt", ".csv"));
@@ -40,7 +40,7 @@ public class Main {
 					System.out.println(tipoModulo);
 					deployObj.setVersao(versaoData[0].trim());
 					deployObj.setData(versaoData[1].trim());
-					if (tipoModulo[0].contains("Arquitetura")  ) {
+					if (tipoModulo[0].contains("Arquitetura") | tipoModulo[0].contains("Design") ) {
 						deployObj.setTipo(tipoModulo[0].trim());
 						deployObj.setModulo("");
 					} else {
